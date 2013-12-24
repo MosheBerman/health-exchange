@@ -1,0 +1,35 @@
+.error_text
+{
+	font-weight:bold;
+	color:red;
+}
+
+.topbar
+{	
+	background: gray;
+	color:black;
+	width: 20%;
+}
+
+.main_block
+{
+	width: 1400px;
+}
+
+.sidebar
+{
+	width: 200px;
+	border: 1px;
+	margin: 5px;
+	float: left;
+	background: #E6E6E6;
+}
+
+.information
+{
+	width: 80%;
+	border: 1px;
+	margin: 5px;
+	float: left;
+	background: #E0F8F7;
+}

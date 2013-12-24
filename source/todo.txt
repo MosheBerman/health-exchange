@@ -1,0 +1,10 @@
+To be done:
+
+#1 is completely done. A new user can register and sign-in to the website. They can also log out. Clicking the user name in the "greetings" will take them to their homepage (company.jsp or subscriber.jsp).
+#2 needs to be completed. It has not been started. In company.jsp there is a div called "company_competitor_offerings". This is where we display the offerings of ever company. Make sure NOT to display subscriber information.
+#3 needs to be completed. It has not been started. In company.jsp there is a div called "company_subscriber_info". This is where we display the subscribers of the company that's logged in (nobody else's).
+#4 needs to be completed. It has not been started. subscriber.jsp must be filled out.
+#5 needs to be completed. Plan is to have a button in subscriber.jsp that leads to another buyoffering.jsp file that the subscriber can use to fill it out (simple form + processing jsp...use signin.jsp or authenticate.jsp as references).
+#6 needs to be completed. Plan is to have a button in subscriber.jsp that leads to another subdetails.jsp file that simple shows the status of their offering. (Easy)
+#7 needs to be completed. Plan is to have a button in company.jsp that leads to another createoffering.jsp file that the company can fill out. (simple form + processing jsp).
+#8 needs to be completed. Plan is to have a button in subscriber.jsp that leads to searchoffering.jsp that allows the subscriber to fill out the requirements.

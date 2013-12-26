@@ -70,3 +70,9 @@
 		url = "jdbc:mysql://"+host+":"+sqlport+"/"+user;
 	}
 %>
+<%
+	setupClientProperties();
+	com.mysql.jdbc.Driver d = new com.mysql.jdbc.Driver();
+
+	Connection con = DriverManager.getConnection(url, user, password);
+%>

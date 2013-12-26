@@ -7,11 +7,6 @@ body
 	text-align: center;
 }
 
-/* Headers throughout the site */
-h1 {
-	color:  #d27c1e; /* Orange */
-}
-
 /* The logo link to the homepage. */
 #home-button{
 	border: none;
@@ -24,12 +19,8 @@ h1 {
 /* Error messages*/
 .error_text, .error-text {
 	font-weight:bold;
-	color:#ffffff;
-	background-color:#d21e1e; /* Red */
-	clear: both;
-	display: block;
-	text-align: center;
-	border: none;
+	color:red;
+	border: 1px solid red;
 	padding: 5px;
 }
 
@@ -82,23 +73,11 @@ h1 {
 	float: left;
 	display: block;
 	clear: none;
-	width: 400px;
+	width: 200px;
 	line-height: 40px;
 	vertical-align: middle;
 	padding: 0;
 	margin: 0;
-	padding-left: 10px;
-	border-left: 1px solid black;
-}
-
-/* Dashboard floats */
-#topbar #greeting .left-element{
-	float: left;
-}
-
-/* Dashboard floats */
-#topbar #greeting .right-element{
-	float: right;
 }
 
 /* Logout form */
@@ -122,18 +101,16 @@ h1 {
 }
 
 /* Orange buttons in the topbar */
-#topbar .small-orange-button {
+#topbar form .small-orange-button {
 	display: block;
 	color: #fff;
 	background-color: #d27c1e; /* Orange */
 	border: none;
 	border-left: 1px solid black;
 	border-right: 1px solid black;
-	text-align: center;
-	text-decoration: none;
 }
 
-#topbar .small-orange-button:hover {
+#topbar form .small-orange-button:hover {
 	background-color: #f29c3e; /* Orange */
 }
 
@@ -167,90 +144,9 @@ h1 {
 	font-size: 18pt;
 	font-weight: lighter;
 	float:left;
-	text-align: center;
-	text-decoration: none;
-	line-height: 70px;
-	vertical-align: middle;
 }
 
 .big-orange-button:hover {
-	background-color: #f29c3e; /* Light Orange */
+	background-color: #f29c3e; /* Orange */
 }
 
-/* Registration description */
-#register-description em{
-	font-style: normal;
-	color:  #d27c1e; /* Orange */
-}
-
-/* Registration form */
-.styled-form {
-	width: 800px;
-	text-align: center;
-	border: 1px solid #d27c1e;
-}
-
-.styled-form input
-{
-	display: block;
-	width: 600px;
-	border: 1px solid black;
-	padding: 5px;
-	margin: 5px;
-	font-size: 24px;
-	text-align: left;
-	float: none;
-}
-
-.styled-form input[type="submit"]
-{
-	border:  none;
-	text-align: center;
-}
-
-/* General Styling Rules */
-.block{
-	display: block;
-}
-
-.clear-both{
-	clear: both;
-}
-
-.center{
-	float: none;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-h1, h2 {
-	margin: 0;
-	padding: 0;
-}
-
-/* Make links orange. */
-a  {
-	color: #d27c1e;
-}
-
-.description a:hover, #topbar a:hover {
-	color: #ffffff;
-	background-color: #f29c3e; /* Light Orange */
-}
-
-/* The offerings chart. */
-
-table, tr {
-	margin: 0;
-	padding: 0;
-	border-collapse:collapse;
-}
-
-td{
-	padding: 5px 10px;
-	border-left: 1px solid #d27c1e;
-	border-right: 1px solid #d27c1e;
-	border-top: 1px dotted #f29c3e;
-	border-bottom: 1px dotted #f29c3e;
-
-}

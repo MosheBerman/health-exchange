@@ -2,27 +2,31 @@
 <html>
 	<%@ page import="java.io.*" %>
 	<%@ page import="java.util.*" %>
-
+	<%@ include file="database.jsp" %>
 	<head>
-		<title>Add Plan</title>
+		<title>Add Plan | HealthExchange.org®</title>
 		<link rel="stylesheet" type="text/css" href="style/site.css">
 	</head>
 	<body>
+		<div id="content-area">
+		<%@ include file="logo.jsp"%>
 		<%@ include file="topbar.jsp"%>
-		<h1>Create a new plan.</h1>
-		<form name="planform" action="validate.jsp" method="GET">
+		<%
+			String error = (String) request.getParameter("error");
+			error_msg = "";
+		%>
+		<h1>Create a Plan<sup>*</sup></h1>
+		<form name="planform" action="validate.jsp" method="GET" class="styled-form">
 			<%
-				String error = (String) request.getParameter("error");
-				String error_msg = "";
 
 				if(error != null)
 				{
-					error_msg = "Error: ";
-					if(error.equals("ERROR_TYPE_PLAN_NAME_NULL")) 		error_msg += "Must enter a plan name";
-					else if(error.equals("ERROR_TYPE_ADD_PLAN_FAILED"))	error_msg += "Plan Name already exists in database.";
+					error_msg = "";
+					if(error.equals("ERROR_TYPE_PLAN_NAME_NULL")) 		error_msg += "All good schemes have a name. What's your scheme's name?";
+					else if(error.equals("ERROR_TYPE_ADD_PLAN_FAILED"))	error_msg += "That plan name isn't original.";
 				}
 				
-				if(!error_msg.equals(""))
+				if(error_msg.length() > 0)
 				{
 					%>
 					<p class="error_text"> <%= error_msg %> </p>
@@ -31,37 +35,50 @@
 			%>
 			<input type="hidden" name="formname" value="add_plan">
 			<input type="hidden" name="from_url" value=<%=request.getRequestURL()%>>
-			Name: <input type="text" name="plan_name"> <br/>
-			<input type="submit" value="Create Plan">
-		</form>
-		
-		<h1>Add Offering to existing plan.</h1>
-		<form name="offeringform" action="validate.jsp" method="GET">
-			Plan Name: <input type="text" name="planname"> 		<br/>
-			Price: <input type="text" name="price"> 			<br/>
-			Deductible: <input type="text" name="deductible"> 	<br/>
-			<input type="submit" value="Add Offering">
-			<input type="hidden" name="formname" value="add_offering">
-			<input type="hidden" name="from_url" value=<%=request.getRequestURL()%>>
+			<input type="text" name="planname" placeholder="Name Your Grand Scheme"> 
+			<input type="submit" value="Create Plan" class="big-orange-button">
 		</form>
 		
 		<h1>Add Coverage to existing plan.</h1>
-		<form name="offeringform" action="validate.jsp" method="GET">
-			Condition: <input type="text" name="condition"> 	<br/>
-			Plan Name: <input type="text" name="planname"> 		<br/>
-			<input type="submit" value="Add Coverage">
+		<form name="offeringform" action="validate.jsp" method="GET" class="styled-form">
+			<%
+				error_msg = "";
+				
+				if(error != null)
+				{
+					error_msg = "";
+					if(error.equals("ERROR_TYPE_COVERAGE_PLAN_NAME_NULL")) 				error_msg += "All good schemes have a name. What's your scheme's name?";
+					else if(error.equals("ERROR_TYPE_COVERAGE_CONDITION_NAME_NULL"))	error_msg += "What are you covering? (Some ideas: idiocy, impulsiveness, cripples.)";
+					else if(error.equals("ERROR_TYPE_COVERAGE_PLAN_NOT_EXIST"))			error_msg += "I never heard of that plan before.";
+				}
+				
+				if(error_msg.length() > 0)
+				{
+					%>
+					<p class="error_text"> <%= error_msg %> </p>
+					<%
+				}
+			%>
+			Plan Name: <select name="planname">
+										<%
+											Statement stmt = con.createStatement();
+											ResultSet rs = stmt.executeQuery("select * from plan");
+											
+											while(rs.next())
+											{
+										%>
+											<option value=<%=rs.getString("name").replaceAll(" ", "_")%> ><%=rs.getString("name")%></option>
+										<%
+											}
+										%>
+									</select>	
+			<input type="text" name="condition" placeholder="Condition">
 			<input type="hidden" name="formname" value="add_coverage">
 			<input type="hidden" name="from_url" value=<%=request.getRequestURL()%>>
+			<input type="submit" value="Add Coverage" class="big-orange-button">
 		</form>
-		
-		<h1>Add Discount to existing offering.</h1>
-		<form name="offeringform" action="validate.jsp" method="GET">
-			Offering Name: <input type="text" name="offeringname"> 	<br/>
-			Discount: <input type="text" name="discount"> 			<br/>
-			Months: <input type="text" name="months"> 				<br/>
-			<input type="submit" value="Add Discount">
-			<input type="hidden" name="formname" value="add_discount">
-			<input type="hidden" name="from_url" value=<%=request.getRequestURL()%>>
-		</form>
+
+		<sub>*Plan, as in scheme.</sub>
+	</div>
 	</body>
 </html>

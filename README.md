@@ -10,7 +10,7 @@ Built by [@bermaniastudios](http://twitter.com/bermaniastudios), [@putmalk](http
 Running Your Own Copy:
 ---
 
-You're going to need to be able to run JSP and MySQL. 
+You're going to need to be able to run JSP and MySQL. The database structure is described in the spec.
 
 License:
 ---
